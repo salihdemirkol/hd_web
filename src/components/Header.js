@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,7 +37,10 @@ export default function Header() {
           <Link href="/biyografi" onClick={() => setIsMenuOpen(false)}>Kronoloji</Link>
           <Link href="/anilar" onClick={() => setIsMenuOpen(false)}>Anılar</Link>
           <Link href="/ses-kayitlari" onClick={() => setIsMenuOpen(false)}>Ses Kayıtları</Link>
-          <Link href="/kulliyat" className="header-cta" onClick={() => setIsMenuOpen(false)}>KÜLLİYAT</Link>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Link href="/kulliyat" className="header-cta" onClick={() => setIsMenuOpen(false)}>KÜLLİYAT</Link>
+            <LanguageSwitcher />
+          </div>
         </nav>
       </div>
     </header>
