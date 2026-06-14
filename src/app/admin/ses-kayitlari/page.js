@@ -5,6 +5,7 @@ export default function AdminSesKayitlari() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [editId, setEditId] = useState(null);
   const [uploadType, setUploadType] = useState('file'); // 'file' or 'link'
   const fileInputRef = useRef(null);
 
@@ -39,29 +40,65 @@ export default function AdminSesKayitlari() {
         if (!upRes.ok) throw new Error('Ses yüklenemedi');
         const upData = await upRes.json();
         finalUrl = upData.url;
+      } else if (editId && uploadType === 'file' && (!fileInputRef.current || !fileInputRef.current.files[0])) {
+        const existing = items.find(i => i.id === editId);
+        finalUrl = existing.url;
       }
 
       if (!finalUrl) throw new Error('Lütfen ses dosyası seçin veya link girin');
 
-      const bodyData = { ...formData, url: finalUrl };
+      const isEdit = !!editId;
+      const bodyData = { 
+        ...(isEdit && { id: editId }),
+        ...formData, 
+        url: finalUrl 
+      };
 
       const res = await fetch('/api/audios', {
-        method: 'POST',
+        method: isEdit ? 'PUT' : 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(bodyData)
       });
       
-      if (!res.ok) throw new Error('İşlem başarısız');
-      const { item } = await res.json();
+      if (!res.ok) throw new Error(isEdit ? 'Güncelleme başarısız' : 'İşlem başarısız');
       
-      setItems([...items, item]);
+      if (isEdit) {
+        setItems(items.map(i => i.id === editId ? { ...i, ...formData, url: finalUrl } : i));
+        setEditId(null);
+      } else {
+        const { item } = await res.json();
+        setItems([...items, item]);
+      }
+
       setFormData({ title: '', desc: '', date: '', url: '' });
       if (fileInputRef.current) fileInputRef.current.value = '';
-      alert('Ses kaydı başarıyla eklendi!');
+      alert(isEdit ? 'Ses kaydı güncellendi!' : 'Ses kaydı başarıyla eklendi!');
     } catch (error) {
       alert(error.message);
     } finally {
       setSaving(false);
+    }
+  };
+
+  const handleEdit = (item) => {
+    setEditId(item.id);
+    setFormData({ title: item.title, desc: item.desc || '', date: item.date, url: item.url });
+    setUploadType(item.url.includes('http') && !item.url.includes('/uploads/') ? 'link' : 'file');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleToggleHide = async (item) => {
+    try {
+      const res = await fetch('/api/audios', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: item.id, hidden: !item.hidden })
+      });
+      if (res.ok) {
+        setItems(items.map(i => i.id === item.id ? { ...item, hidden: !item.hidden } : i));
+      }
+    } catch (e) {
+      alert('İşlem başarısız');
     }
   };
 
@@ -80,7 +117,7 @@ export default function AdminSesKayitlari() {
       <h1 style={{ fontSize: '2rem', marginBottom: '2rem', color: '#fff' }}>Ses Kayıtları Yönetimi</h1>
       
       <div className="glass-panel" style={{ backgroundColor: 'rgba(25,25,25,0.6)', padding: '2rem', borderRadius: '16px', border: '1px solid #333', marginBottom: '2rem' }}>
-        <h2 style={{ marginBottom: '1.5rem', color: 'var(--color-secondary)', fontSize: '1.25rem' }}>Yeni Ses Kaydı Ekle</h2>
+        <h2 style={{ marginBottom: '1.5rem', color: 'var(--color-secondary)', fontSize: '1.25rem' }}>{editId ? 'Ses Kaydını Düzenle' : 'Yeni Ses Kaydı Ekle'}</h2>
         
         <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
           <button type="button" onClick={() => setUploadType('file')} style={{ flex: 1, padding: '1rem', borderRadius: '8px', border: uploadType === 'file' ? '2px solid var(--color-secondary)' : '1px solid #444', backgroundColor: uploadType === 'file' ? 'rgba(220,167,91,0.1)' : 'transparent', color: '#fff', cursor: 'pointer', transition: 'all 0.2s' }}>
@@ -109,8 +146,12 @@ export default function AdminSesKayitlari() {
             {uploadType === 'file' ? (
               <div>
                 <label style={{ display: 'block', marginBottom: '0.5rem', color: '#aaa' }}>MP3 Dosyası Seç</label>
-                <input type="file" accept="audio/*" ref={fileInputRef} required style={{ color: '#fff' }} />
-                <p style={{ fontSize: '0.8rem', color: '#888', marginTop: '0.5rem' }}>Lütfen .mp3 veya benzeri bir ses dosyası seçin.</p>
+                <input type="file" accept="audio/*" ref={fileInputRef} style={{ color: '#fff' }} />
+                {editId ? (
+                  <p style={{ fontSize: '0.8rem', color: '#888', marginTop: '0.5rem' }}>Dosya seçmezseniz mevcut ses kaydı korunur.</p>
+                ) : (
+                  <p style={{ fontSize: '0.8rem', color: '#888', marginTop: '0.5rem' }}>Lütfen .mp3 veya benzeri bir ses dosyası seçin.</p>
+                )}
               </div>
             ) : (
               <div>
@@ -121,10 +162,15 @@ export default function AdminSesKayitlari() {
             )}
           </div>
 
-          <div style={{ gridColumn: '1 / -1', marginTop: '1rem' }}>
+          <div style={{ gridColumn: '1 / -1', marginTop: '1rem', display: 'flex', gap: '1rem' }}>
             <button type="submit" disabled={saving} style={{ padding: '1rem 2rem', borderRadius: '8px', backgroundColor: 'var(--color-secondary)', color: '#000', fontWeight: 'bold', border: 'none', cursor: saving ? 'not-allowed' : 'pointer' }}>
-              {saving ? 'Yükleniyor...' : 'Ses Kaydını Yayınla'}
+              {saving ? 'Yükleniyor...' : (editId ? 'Değişiklikleri Kaydet' : 'Ses Kaydını Yayınla')}
             </button>
+            {editId && (
+              <button type="button" onClick={() => { setEditId(null); setFormData({ title: '', desc: '', date: '', url: '' }); if (fileInputRef.current) fileInputRef.current.value = ''; }} style={{ padding: '1rem 2rem', borderRadius: '8px', backgroundColor: 'transparent', color: '#fff', border: '1px solid #555', cursor: 'pointer' }}>
+                İptal Et
+              </button>
+            )}
           </div>
         </form>
       </div>
@@ -134,15 +180,22 @@ export default function AdminSesKayitlari() {
         {loading ? <p>Yükleniyor...</p> : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {items.length === 0 ? <p style={{ color: '#888' }}>Henüz kayıt eklenmemiş.</p> : items.map((item) => (
-              <div key={item.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1.5rem', backgroundColor: 'rgba(0,0,0,0.3)', borderRadius: '8px', border: '1px solid #333' }}>
+              <div key={item.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1.5rem', backgroundColor: 'rgba(0,0,0,0.3)', borderRadius: '8px', border: '1px solid #333', opacity: item.hidden ? 0.5 : 1 }}>
                 <div>
-                  <h3 style={{ margin: '0 0 0.5rem 0', color: 'var(--color-secondary)' }}>{item.title}</h3>
+                  <h3 style={{ margin: '0 0 0.5rem 0', color: 'var(--color-secondary)' }}>
+                    {item.title} {item.hidden && <span style={{ fontSize: '0.8rem', backgroundColor: '#555', color: '#fff', padding: '2px 6px', borderRadius: '4px', marginLeft: '8px' }}>GİZLİ</span>}
+                  </h3>
                   <div style={{ display: 'flex', gap: '1rem', fontSize: '0.85rem', color: '#888' }}>
                     <span>📅 {item.date}</span>
                     <span>🎙️ {item.url.includes('spotify') ? 'Spotify' : (item.url.includes('soundcloud') ? 'SoundCloud' : 'Sunucu (MP3)')}</span>
                   </div>
                 </div>
-                <button onClick={() => handleDelete(item.id)} style={{ padding: '0.5rem 1rem', backgroundColor: '#331515', color: '#ff6b6b', border: '1px solid #552222', borderRadius: '6px', cursor: 'pointer' }}>Sil</button>
+                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                  <a href={item.url.includes('http') ? item.url : `/uploads/${item.url}`} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', padding: '0.5rem 1rem', backgroundColor: '#218c74', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem', display: 'flex', alignItems: 'center' }}>Gör</a>
+                  <button onClick={() => handleEdit(item)} style={{ padding: '0.5rem 1rem', backgroundColor: '#3a3a3a', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' }}>Düzenle</button>
+                  <button onClick={() => handleToggleHide(item)} style={{ padding: '0.5rem 1rem', backgroundColor: item.hidden ? '#2c3e50' : '#d35400', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' }}>{item.hidden ? 'Göster' : 'Gizle'}</button>
+                  <button onClick={() => handleDelete(item.id)} style={{ padding: '0.5rem 1rem', backgroundColor: '#331515', color: '#ff6b6b', border: '1px solid #552222', borderRadius: '6px', cursor: 'pointer' }}>Sil</button>
+                </div>
               </div>
             ))}
           </div>
