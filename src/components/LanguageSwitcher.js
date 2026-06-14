@@ -87,13 +87,18 @@ export default function LanguageSwitcher() {
     setCurrentLang(langCode);
     setIsOpen(false);
     
-    // Set Google Translate cookie (sets both domain and path correctly)
-    const domain = window.location.hostname;
-    document.cookie = `googtrans=/tr/${langCode}; path=/; domain=${domain}`;
-    document.cookie = `googtrans=/tr/${langCode}; path=/; domain=.${domain}`;
+    // Fallback cookie without explicit domain (best for Vercel/localhost)
+    document.cookie = `googtrans=/tr/${langCode}; path=/;`;
+    document.cookie = `googtrans=/tr/${langCode}; path=/; domain=${window.location.hostname}`;
     
-    if (!isInitial) {
-      window.location.reload(); // Reload to apply changes immediately
+    // Try to use Google's select box for instant translation without reload
+    const selectField = document.querySelector('.goog-te-combo');
+    if (selectField) {
+      selectField.value = langCode;
+      selectField.dispatchEvent(new Event('change'));
+    } else if (!isInitial) {
+      // If widget isn't ready but user clicked, reload as fallback
+      window.location.reload();
     }
   };
 
