@@ -205,6 +205,12 @@ a {
   padding: 0 2rem;
 }
 
+.header-left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
 /* Professional Logo */
 .logo-container {
   display: flex;
@@ -244,9 +250,23 @@ a {
 }
 
 .main-nav {
+  flex: 2;
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 2rem;
+}
+
+.header-actions {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0;
+}
+
+.mobile-actions {
+  display: none;
 }
 
 .main-nav a {
@@ -361,6 +381,18 @@ a {
     text-align: center;
     width: 100%;
     padding: 0.5rem 0;
+  }
+  .desktop-actions {
+    display: none;
+  }
+  .mobile-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding-top: 1rem;
+    border-top: 1px dashed rgba(255,255,255,0.1);
   }
   .header-cta {
     align-self: center;
