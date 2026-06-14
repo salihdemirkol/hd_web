@@ -82,20 +82,7 @@ export default function AdminVideos() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleToggleHide = async (video) => {
-    try {
-      const res = await fetch('/api/videos', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: video.id, hidden: !video.hidden })
-      });
-      if (res.ok) {
-        setVideos(videos.map(v => v.id === video.id ? { ...video, hidden: !video.hidden } : v));
-      }
-    } catch (e) {
-      alert('İşlem başarısız');
-    }
-  };
+
 
   const handleDelete = async (id) => {
     if (!confirm('Bu videoyu silmek istediğinize emin misiniz?')) return;
@@ -164,18 +151,15 @@ export default function AdminVideos() {
         {loading ? <p>Yükleniyor...</p> : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {videos.length === 0 ? <p style={{ color: '#888' }}>Henüz video eklenmemiş.</p> : videos.map((video) => (
-              <div key={video.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem', backgroundColor: video.hidden ? 'rgba(0,0,0,0.6)' : 'rgba(0,0,0,0.3)', borderRadius: '8px', border: video.hidden ? '1px dashed #555' : '1px solid #333', transition: 'all 0.3s' }}>
-                <div style={{ opacity: video.hidden ? 0.3 : 1, filter: video.hidden ? 'grayscale(100%)' : 'none', transition: 'all 0.3s' }}>
-                  <h3 style={{ margin: '0 0 0.25rem 0', color: 'var(--color-secondary)' }}>
-                    {video.title} {video.hidden && <span style={{ fontSize: '0.75rem', backgroundColor: '#ff4757', color: '#fff', padding: '3px 8px', borderRadius: '4px', marginLeft: '12px', fontWeight: 'bold' }}>YAYINDAN KALDIRILDI</span>}
-                  </h3>
+              <div key={video.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem', backgroundColor: 'rgba(0,0,0,0.3)', borderRadius: '8px', border: '1px solid #333' }}>
+                <div>
+                  <h3 style={{ margin: '0 0 0.25rem 0', color: 'var(--color-secondary)' }}>{video.title}</h3>
                   <p style={{ margin: 0, color: '#888', fontSize: '0.85rem' }}>{video.url}</p>
                 </div>
                 <div style={{ display: 'flex', gap: '0.5rem' }}>
-                  <a href={video.url.includes('http') ? video.url : `/uploads/${video.url}`} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', padding: '0.5rem 1rem', backgroundColor: '#218c74', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem', display: 'flex', alignItems: 'center', opacity: video.hidden ? 0.3 : 1, pointerEvents: video.hidden ? 'none' : 'auto' }}>Gör</a>
-                  <button onClick={() => handleEdit(video)} style={{ padding: '0.5rem 1rem', backgroundColor: '#3a3a3a', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer', opacity: video.hidden ? 0.3 : 1, pointerEvents: video.hidden ? 'none' : 'auto' }}>Düzenle</button>
-                  <button onClick={() => handleToggleHide(video)} style={{ padding: '0.5rem 1rem', backgroundColor: video.hidden ? '#2ed573' : '#d35400', color: video.hidden ? '#000' : '#fff', fontWeight: video.hidden ? 'bold' : 'normal', border: 'none', borderRadius: '6px', cursor: 'pointer', boxShadow: video.hidden ? '0 0 10px rgba(46, 213, 115, 0.4)' : 'none' }}>{video.hidden ? '👁️ Yayına Al' : 'Gizle'}</button>
-                  <button onClick={() => handleDelete(video.id)} style={{ padding: '0.5rem 1rem', backgroundColor: '#331515', color: '#ff6b6b', border: '1px solid #552222', borderRadius: '6px', cursor: 'pointer', opacity: video.hidden ? 0.3 : 1 }}>Sil</button>
+                  <a href={video.url.includes('http') ? video.url : `/uploads/${video.url}`} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', padding: '0.5rem 1rem', backgroundColor: '#218c74', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem', display: 'flex', alignItems: 'center' }}>Gör</a>
+                  <button onClick={() => handleEdit(video)} style={{ padding: '0.5rem 1rem', backgroundColor: '#3a3a3a', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' }}>Düzenle</button>
+                  <button onClick={() => handleDelete(video.id)} style={{ padding: '0.5rem 1rem', backgroundColor: '#331515', color: '#ff6b6b', border: '1px solid #552222', borderRadius: '6px', cursor: 'pointer' }}>Sil</button>
                 </div>
               </div>
             ))}

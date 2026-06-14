@@ -87,20 +87,7 @@ export default function AdminSesKayitlari() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleToggleHide = async (item) => {
-    try {
-      const res = await fetch('/api/audios', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: item.id, hidden: !item.hidden })
-      });
-      if (res.ok) {
-        setItems(items.map(i => i.id === item.id ? { ...item, hidden: !item.hidden } : i));
-      }
-    } catch (e) {
-      alert('İşlem başarısız');
-    }
-  };
+
 
   const handleDelete = async (id) => {
     if (!confirm('Silmek istediğinize emin misiniz?')) return;
@@ -180,21 +167,18 @@ export default function AdminSesKayitlari() {
         {loading ? <p>Yükleniyor...</p> : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {items.length === 0 ? <p style={{ color: '#888' }}>Henüz kayıt eklenmemiş.</p> : items.map((item) => (
-              <div key={item.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1.5rem', backgroundColor: item.hidden ? 'rgba(0,0,0,0.6)' : 'rgba(0,0,0,0.3)', borderRadius: '8px', border: item.hidden ? '1px dashed #555' : '1px solid #333', transition: 'all 0.3s' }}>
-                <div style={{ opacity: item.hidden ? 0.3 : 1, filter: item.hidden ? 'grayscale(100%)' : 'none', transition: 'all 0.3s' }}>
-                  <h3 style={{ margin: '0 0 0.5rem 0', color: 'var(--color-secondary)' }}>
-                    {item.title} {item.hidden && <span style={{ fontSize: '0.75rem', backgroundColor: '#ff4757', color: '#fff', padding: '3px 8px', borderRadius: '4px', marginLeft: '12px', fontWeight: 'bold' }}>YAYINDAN KALDIRILDI</span>}
-                  </h3>
+              <div key={item.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1.5rem', backgroundColor: 'rgba(0,0,0,0.3)', borderRadius: '8px', border: '1px solid #333' }}>
+                <div>
+                  <h3 style={{ margin: '0 0 0.5rem 0', color: 'var(--color-secondary)' }}>{item.title}</h3>
                   <div style={{ display: 'flex', gap: '1rem', fontSize: '0.85rem', color: '#888' }}>
                     <span>📅 {item.date}</span>
                     <span>🎙️ {item.url.includes('spotify') ? 'Spotify' : (item.url.includes('soundcloud') ? 'SoundCloud' : 'Sunucu (MP3)')}</span>
                   </div>
                 </div>
                 <div style={{ display: 'flex', gap: '0.5rem' }}>
-                  <a href={item.url.includes('http') ? item.url : `/uploads/${item.url}`} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', padding: '0.5rem 1rem', backgroundColor: '#218c74', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem', display: 'flex', alignItems: 'center', opacity: item.hidden ? 0.3 : 1, pointerEvents: item.hidden ? 'none' : 'auto' }}>Gör</a>
-                  <button onClick={() => handleEdit(item)} style={{ padding: '0.5rem 1rem', backgroundColor: '#3a3a3a', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer', opacity: item.hidden ? 0.3 : 1, pointerEvents: item.hidden ? 'none' : 'auto' }}>Düzenle</button>
-                  <button onClick={() => handleToggleHide(item)} style={{ padding: '0.5rem 1rem', backgroundColor: item.hidden ? '#2ed573' : '#d35400', color: item.hidden ? '#000' : '#fff', fontWeight: item.hidden ? 'bold' : 'normal', border: 'none', borderRadius: '6px', cursor: 'pointer', boxShadow: item.hidden ? '0 0 10px rgba(46, 213, 115, 0.4)' : 'none' }}>{item.hidden ? '👁️ Yayına Al' : 'Gizle'}</button>
-                  <button onClick={() => handleDelete(item.id)} style={{ padding: '0.5rem 1rem', backgroundColor: '#331515', color: '#ff6b6b', border: '1px solid #552222', borderRadius: '6px', cursor: 'pointer', opacity: item.hidden ? 0.3 : 1 }}>Sil</button>
+                  <a href={item.url.includes('http') ? item.url : `/uploads/${item.url}`} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', padding: '0.5rem 1rem', backgroundColor: '#218c74', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer', fontSize: '0.85rem', display: 'flex', alignItems: 'center' }}>Gör</a>
+                  <button onClick={() => handleEdit(item)} style={{ padding: '0.5rem 1rem', backgroundColor: '#3a3a3a', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' }}>Düzenle</button>
+                  <button onClick={() => handleDelete(item.id)} style={{ padding: '0.5rem 1rem', backgroundColor: '#331515', color: '#ff6b6b', border: '1px solid #552222', borderRadius: '6px', cursor: 'pointer' }}>Sil</button>
                 </div>
               </div>
             ))}
