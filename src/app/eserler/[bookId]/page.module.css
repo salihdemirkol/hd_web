@@ -185,20 +185,106 @@
 }
 
 /* Responsive */
+@media (min-width: 1025px) {
+  .fabContainer {
+    display: none;
+  }
+  .backdrop {
+    display: none;
+  }
+}
+
 @media (max-width: 1024px) {
   .readerLayout {
     flex-direction: column;
     padding: 0 1rem;
     margin-top: 2rem;
   }
+  
   .sidebar {
-    width: 100%;
-    position: relative;
+    position: fixed;
     top: 0;
-    max-height: 400px;
+    left: -100%;
+    width: 85%;
+    max-width: 350px;
+    height: 100vh;
+    max-height: 100vh;
+    z-index: 1000;
+    border-radius: 0;
+    border: none;
+    transition: left 0.3s ease;
+    background-color: #1a232f; /* Dark background similar to user screenshot */
+    display: flex !important; /* Override closed state if any */
   }
+
+  .sidebar.mobileOpen {
+    left: 0;
+  }
+
   .mainContent {
-    padding: 3rem 2rem;
+    padding: 2rem 1rem;
     width: 100%;
+    margin-top: 0;
+  }
+
+  .openSidebarBtn {
+    display: none; /* Hide the top open sidebar button on mobile */
+  }
+
+  /* Backdrop overlay when menu is open */
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.6);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .backdrop.mobileOpen {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* FAB Container */
+  .fabContainer {
+    position: fixed;
+    bottom: 2rem;
+    right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 900;
+  }
+
+  .fabBtn {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .fabBtn:active {
+    transform: scale(0.95);
+  }
+
+  .fabMenu {
+    background-color: #1f2d3d;
+    color: white;
+  }
+
+  .fabUp {
+    background-color: #c9a05b; /* Gold color */
+    color: #1a232f;
   }
 }
