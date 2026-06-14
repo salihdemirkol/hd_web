@@ -5,7 +5,7 @@ export const metadata = { title: 'Videolar | Hasan Damar' };
 
 export default async function VideolarPage() {
   const db = await getDb();
-  const videos = db.videos || [];
+  const videos = (db.videos || []).filter(v => !v.hidden);
 
   return (
     <div className="container" style={{ padding: '4rem 1rem' }}>

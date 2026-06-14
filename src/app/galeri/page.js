@@ -5,7 +5,7 @@ export const metadata = { title: 'Fotoğraf Galerisi | Hasan Damar' };
 
 export default async function GaleriPage() {
   const db = await getDb();
-  const photos = db.gallery || [];
+  const photos = (db.gallery || []).filter(p => !p.hidden);
 
   return (
     <div className="container" style={{ padding: '4rem 1rem' }}>

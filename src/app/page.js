@@ -5,7 +5,8 @@ import { getDb } from '@/lib/db';
 
 export default async function Home() {
   const db = await getDb();
-  const pinnedAudio = db.audios && db.audios.length > 0 ? db.audios[0] : null;
+  const visibleAudios = (db.audios || []).filter(a => !a.hidden);
+  const pinnedAudio = visibleAudios.length > 0 ? visibleAudios[0] : null;
 
   return (
     <div className={styles.homeWrapper}>
