@@ -12,15 +12,13 @@ export default function Header() {
 
   return (
     <header className="main-header">
-      <div className="container header-inner">
-        <div className="header-left">
-          <Link href="/" className="logo-container notranslate" onClick={() => setIsMenuOpen(false)}>
-            <div className="logo-mark">ح</div>
-            <div className="logo-text">
-              <span className="logo-title">Hasan Damar</span>
-            </div>
-          </Link>
-        </div>
+      <div className="header-inner">
+        <Link href="/" className="logo-container notranslate" onClick={() => setIsMenuOpen(false)}>
+          <div className="logo-mark">ح</div>
+          <div className="logo-text">
+            <span className="logo-title">Hasan Damar</span>
+          </div>
+        </Link>
         
         <button className="mobile-menu-btn" onClick={toggleMenu} aria-label="Menüyü Aç/Kapat">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -39,18 +37,11 @@ export default function Header() {
           <Link href="/biyografi" onClick={() => setIsMenuOpen(false)}>Kronoloji</Link>
           <Link href="/anilar" onClick={() => setIsMenuOpen(false)}>Anılar</Link>
           <Link href="/ses-kayitlari" onClick={() => setIsMenuOpen(false)}>Ses Kayıtları</Link>
-          
-          {/* Mobil görünümde eklentileri göstermek için nav içine klonluyoruz */}
-          <div className="mobile-actions">
+          <div style={{ display: 'flex', alignItems: 'center' }}>
             <Link href="/kulliyat" className="header-cta" onClick={() => setIsMenuOpen(false)}>KÜLLİYAT</Link>
             <LanguageSwitcher />
           </div>
         </nav>
-
-        <div className="header-actions desktop-actions">
-          <Link href="/kulliyat" className="header-cta">KÜLLİYAT</Link>
-          <LanguageSwitcher />
-        </div>
       </div>
     </header>
   );
