@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 
 const languages = [
@@ -14,6 +14,7 @@ const languages = [
 export default function LanguageSwitcher() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
   const [currentLang, setCurrentLang] = useState('tr');
   const [scriptLoaded, setScriptLoaded] = useState(false);
 
@@ -21,6 +22,18 @@ export default function LanguageSwitcher() {
   if (pathname && pathname.startsWith('/admin')) {
     return null;
   }
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     // Check if user has already set a preference
@@ -103,7 +116,7 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="language-switcher-container notranslate" style={{ position: 'relative', display: 'inline-block', marginLeft: '1rem', zIndex: 9999 }}>
+    <div ref={dropdownRef} className="language-switcher-container notranslate" style={{ position: 'relative', display: 'inline-block', marginLeft: '1rem', zIndex: 9999 }}>
       {/* Hidden Div for Google Translate logic */}
       <div id="google_translate_element" style={{ display: 'none' }}></div>
 
