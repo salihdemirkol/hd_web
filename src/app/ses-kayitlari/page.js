@@ -2,6 +2,7 @@ import { getDb } from '@/lib/db';
 import LoadMoreAudios from '@/components/LoadMoreAudios';
 
 export const metadata = { title: 'Ses Kayıtları | Hasan Damar' };
+export const dynamic = 'force-dynamic';
 
 export default async function SesKayitlariPage() {
   const db = await getDb();

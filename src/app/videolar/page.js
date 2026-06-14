@@ -2,6 +2,7 @@ import { getDb } from '@/lib/db';
 import LoadMoreVideos from '@/components/LoadMoreVideos';
 
 export const metadata = { title: 'Videolar | Hasan Damar' };
+export const dynamic = 'force-dynamic';
 
 export default async function VideolarPage() {
   const db = await getDb();

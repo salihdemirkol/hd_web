@@ -2,6 +2,7 @@ import { getDb } from '@/lib/db';
 import LoadMoreGallery from '@/components/LoadMoreGallery';
 
 export const metadata = { title: 'Fotoğraf Galerisi | Hasan Damar' };
+export const dynamic = 'force-dynamic';
 
 export default async function GaleriPage() {
   const db = await getDb();

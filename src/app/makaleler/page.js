@@ -2,6 +2,7 @@ import { getDb } from '@/lib/db';
 import LoadMoreList from '@/components/LoadMoreList';
 
 export const metadata = { title: 'Makaleler | Hasan Damar' };
+export const dynamic = 'force-dynamic';
 
 export default async function MakalelerPage() {
   const db = await getDb();
