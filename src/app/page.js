@@ -47,19 +47,19 @@ export default async function Home() {
               <div className={styles.booksMiniGrid}>
                 <a href="/eserler/efendilikten-kolelige-1" className={styles.miniBook}>
                   <div className={styles.miniBookCover}>
-                    <img src="/images/cilt1.png" alt="Cilt I" />
+                    <img src="/images/cilt1.webp" alt="Cilt I" />
                   </div>
                   <span className={styles.miniBookTitle}>Cilt I</span>
                 </a>
                 <a href="/eserler/efendilikten-kolelige-2" className={styles.miniBook}>
                   <div className={styles.miniBookCover}>
-                    <img src="/images/cilt2.png" alt="Cilt II" />
+                    <img src="/images/cilt2.webp" alt="Cilt II" />
                   </div>
                   <span className={styles.miniBookTitle}>Cilt II</span>
                 </a>
                 <a href="/eserler/dgm-163" className={styles.miniBook}>
                   <div className={styles.miniBookCover}>
-                    <img src="/images/dgm.jpg" alt="DGM 163" />
+                    <img src="/images/dgm.webp" alt="DGM 163" />
                   </div>
                   <span className={styles.miniBookTitle}>DGM 163</span>
                 </a>

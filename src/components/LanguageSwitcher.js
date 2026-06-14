@@ -37,20 +37,15 @@ export default function LanguageSwitcher() {
 
   useEffect(() => {
     // Check if user has already set a preference
-    const getCookie = (name) => {
-      const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-      if (match) return match[2];
-      return null;
-    };
-
-    const savedLang = getCookie('googtrans');
+    const savedLang = localStorage.getItem('hd_lang_pref');
+    
     if (savedLang) {
-      const langCode = savedLang.split('/')[2];
-      if (langCode) {
-        setCurrentLang(langCode);
+      if (savedLang !== 'tr') {
+        setCurrentLang(savedLang);
+        // We will apply the change via Google Translate once it's loaded
       }
     } else {
-      // Auto-detect via IP if no cookie is found
+      // Auto-detect via IP if no preference is found
       fetch('https://ipapi.co/json/')
         .then(res => res.json())
         .then(data => {
@@ -62,10 +57,15 @@ export default function LanguageSwitcher() {
             else if (['GB', 'US', 'AU', 'CA', 'NZ', 'IE'].includes(country)) autoLang = 'en';
             else if (['FR', 'BE', 'MC'].includes(country)) autoLang = 'fr';
             else if (['SA', 'AE', 'QA', 'BH', 'KW', 'OM', 'EG', 'JO', 'LB', 'SY', 'IQ', 'YE', 'DZ', 'MA', 'TN', 'LY', 'SD'].includes(country)) autoLang = 'ar';
-            // Latin isn't a native country language but added per request
+            // Latin isn't a native country language
             
             if (autoLang !== 'tr') {
-              changeLanguage(autoLang, true); // initial auto-set
+              setCurrentLang(autoLang);
+              localStorage.setItem('hd_lang_pref', autoLang);
+              
+              // Apply immediately via cookie for Google Translate
+              document.cookie = `googtrans=/tr/${autoLang}; path=/;`;
+              document.cookie = `googtrans=/tr/${autoLang}; path=/; domain=${window.location.hostname}`;
             }
           }
         })
@@ -82,6 +82,18 @@ export default function LanguageSwitcher() {
         },
         'google_translate_element'
       );
+      
+      // If we have a saved non-TR lang, make sure it's applied when widget loads
+      const savedLangPref = localStorage.getItem('hd_lang_pref');
+      if (savedLangPref && savedLangPref !== 'tr') {
+        setTimeout(() => {
+          const selectField = document.querySelector('.goog-te-combo');
+          if (selectField) {
+            selectField.value = savedLangPref;
+            selectField.dispatchEvent(new Event('change'));
+          }
+        }, 1000);
+      }
     };
 
     // Inject Script if not already there
@@ -96,20 +108,40 @@ export default function LanguageSwitcher() {
 
   }, []);
 
-  const changeLanguage = (langCode, isInitial = false) => {
+  const changeLanguage = (langCode) => {
     setCurrentLang(langCode);
     setIsOpen(false);
     
-    // Fallback cookie without explicit domain (best for Vercel/localhost)
-    document.cookie = `googtrans=/tr/${langCode}; path=/;`;
-    document.cookie = `googtrans=/tr/${langCode}; path=/; domain=${window.location.hostname}`;
+    // Save preference permanently
+    localStorage.setItem('hd_lang_pref', langCode);
+    
+    if (langCode === 'tr') {
+       // If switching back to original, clear the translation cookies
+       document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+       document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname}`;
+    } else {
+       document.cookie = `googtrans=/tr/${langCode}; path=/;`;
+       document.cookie = `googtrans=/tr/${langCode}; path=/; domain=${window.location.hostname}`;
+    }
     
     // Try to use Google's select box for instant translation without reload
     const selectField = document.querySelector('.goog-te-combo');
     if (selectField) {
-      selectField.value = langCode;
-      selectField.dispatchEvent(new Event('change'));
-    } else if (!isInitial) {
+      if (langCode === 'tr') {
+         // Reset to original
+         const iframe = document.querySelector('.goog-te-banner-frame');
+         if (iframe) {
+           const restoreBtn = iframe.contentWindow.document.getElementById(':1.restore');
+           if (restoreBtn) restoreBtn.click();
+           else window.location.reload();
+         } else {
+            window.location.reload();
+         }
+      } else {
+         selectField.value = langCode;
+         selectField.dispatchEvent(new Event('change'));
+      }
+    } else {
       // If widget isn't ready but user clicked, reload as fallback
       window.location.reload();
     }

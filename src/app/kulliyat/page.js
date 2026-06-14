@@ -8,7 +8,7 @@ export default function KulliyatPage() {
       subtitle: 'Cilt I',
       desc: 'Avrupa\'da Milli Görüş Hareketi\'nin tarihi, ilk tohumların atılması ve teşkilatlanma süreçlerini konu alan birinci cilt.',
       status: 'available',
-      cover: '/images/cilt1.png',
+      cover: '/images/cilt1.webp',
       slug: 'efendilikten-kolelige-1'
     },
     {
@@ -17,7 +17,7 @@ export default function KulliyatPage() {
       subtitle: 'Cilt II',
       desc: 'Harekâtın büyümesi, karşılaşılan zorluklar ve Avrupa\'daki Müslümanların kurumsallaşma adımlarını anlatan ikinci cilt.',
       status: 'available',
-      cover: '/images/cilt2.png',
+      cover: '/images/cilt2.webp',
       slug: 'efendilikten-kolelige-2'
     },
     {
@@ -26,7 +26,7 @@ export default function KulliyatPage() {
       subtitle: 'Tarihi Savunma',
       desc: 'İnancı uğruna bedel ödeyenlerin, Devlet Güvenlik Mahkemeleri\'ndeki tarihi duruşları ve hak mücadelesi.',
       status: 'available',
-      cover: '/images/dgm.jpg',
+      cover: '/images/dgm.webp',
       slug: 'dgm-163'
     }
   ];
