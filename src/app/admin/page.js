@@ -11,8 +11,6 @@ export default async function DashboardPage() {
   const stats = [
     { label: 'Toplam Video', value: db.videos?.length || 0, icon: '🎥' },
     { label: 'Galeri Fotoğrafı', value: db.gallery?.length || 0, icon: '🖼️' },
-    { label: 'Toplam Ziyaret', value: db.stats?.totalVisitors || 0, icon: '👥' },
-    { label: 'Sayfa Görüntüleme', value: db.stats?.totalViews || 0, icon: '👁️' },
   ];
 
   return (
