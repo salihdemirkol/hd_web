@@ -1,0 +1,5 @@
+:HL["/_next/static/chunks/2_22wflcmyixc.css","style"]
+:HL["/_next/static/media/1062333f2bd32cfe-s.p.1u_72eqgml40c.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/648474ecaeaf4c9a-s.p.3bws0utn4kpyc.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/83afe278b6a6bb3c-s.p.2bn3s6zvc0dyp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"makaleler","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"WnKo1xF5XIj3BUphpoDgq"}

@@ -1,0 +1,465 @@
+{
+  "videos": [
+    {
+      "id": "v1",
+      "title": "Meclis Konuşması: 'Bana Ne Amerika'dan!'",
+      "url": "https://www.youtube.com/watch?v=pycR0ymNjZY",
+      "date": "1992",
+      "desc": "Prof. Dr. Necmettin Erbakan'ın TBMM kürsüsünden yaptığı, dış politikada bağımsızlık vurgusu içeren unutulmaz tarihi çıkışı."
+    },
+    {
+      "id": "v2",
+      "title": "Ağır Sanayi Hamlesi ve Kalkınma Konferansı",
+      "url": "https://www.youtube.com/watch?v=LbX1EzT3JOE",
+      "date": "1990",
+      "desc": "Türkiye'nin kendi fabrikasını kuran fabrikalar inşa etmesi gerektiğini anlattığı efsanevi Ağır Sanayi sunumu."
+    },
+    {
+      "id": "v3",
+      "title": "Tarihi Ayasofya Mitingi",
+      "url": "https://www.youtube.com/watch?v=1QNT3ugwHpI",
+      "date": "1994",
+      "desc": "Yüz binlerce Milli Görüş sevdalısının katıldığı, 'Ayasofya açılacak!' nidalarıyla inleyen muazzam açık hava mitingi."
+    },
+    {
+      "id": "v4",
+      "title": "Adil Düzen Semineri: Sömürü Çarklarına Karşı",
+      "url": "https://www.youtube.com/watch?v=tjoA4WkTdP8",
+      "date": "1989",
+      "desc": "Faizci kapitalist sistemin nasıl sömürdüğünü tahtada formüllerle anlattığı ünlü Adil Düzen konferansı."
+    },
+    {
+      "id": "v5",
+      "title": "TBMM 'Çekiç Güç' Uyarıları",
+      "url": "https://www.youtube.com/watch?v=MT3T3oLj2h8",
+      "date": "1993",
+      "desc": "Erbakan Hoca'nın bölgedeki dış müdahalelere ve Çekiç Güç'ün faaliyetlerine karşı Meclis'te yaptığı sert uyarılar."
+    },
+    {
+      "id": "v6",
+      "title": "Gümüş Motor ve İlk Yerli Üretim Hatıraları",
+      "url": "https://www.youtube.com/watch?v=w9nYdIt9mqw",
+      "date": "1991",
+      "desc": "Türkiye'nin ilk yerli motor üretim fabrikası Gümüş Motor'un kuruluş aşamasında yaşanan engellemeleri anlattığı anlar."
+    },
+    {
+      "id": "v7",
+      "title": "Kıbrıs Barış Harekatı'nın Bilinmeyenleri",
+      "url": "https://www.youtube.com/watch?v=LUrCPqDrrzI",
+      "date": "1988",
+      "desc": "1974 Kıbrıs Barış Harekatı emrinin nasıl verildiğini ve o günkü koalisyon hükümetinde yaşananları anlattığı röportaj."
+    },
+    {
+      "id": "v8",
+      "title": "Bosna Hersek Mitingi ve Destek Çağrısı",
+      "url": "https://www.youtube.com/watch?v=tMgheRV_x9A",
+      "date": "1994",
+      "desc": "Avrupa'nın göbeğinde yaşanan zulme dikkat çekmek ve Bosna halkına destek için düzenlenen büyük miting."
+    },
+    {
+      "id": "v9",
+      "title": "İslam Ortak Pazarı ve Yeni Bir Dünya Konferansı",
+      "url": "https://www.youtube.com/watch?v=NCbxZ-_lES8",
+      "date": "1992",
+      "desc": "Müslüman ülkelerin ekonomik güçlerini birleştirerek İslam Ortak Pazarı'nı kurmaları gerektiğini anlattığı vizyon toplantısı."
+    },
+    {
+      "id": "v10",
+      "title": "Refah Partisi Seçim Mitingi Meydan Konuşması",
+      "url": "https://www.youtube.com/watch?v=SKBcaq_O9to",
+      "date": "1991",
+      "desc": "Refah Partisi'nin yükselişe geçtiği dönemde, büyük bir coşkuyla gerçekleştirilen mahşeri kalabalıkların katıldığı seçim mitingi."
+    },
+    {
+      "id": "v11",
+      "title": "Siyasi Yasakların Kalkması Sonrası İlk Miting",
+      "url": "https://www.youtube.com/watch?v=Vndj3s9SZfc",
+      "date": "1987",
+      "desc": "Referandum ile siyasi yasakların kalkmasının hemen ardından sahalara inerek halka seslendiği tarihi ilk büyük miting."
+    }
+  ],
+  "gallery": [
+    {
+      "id": "1781423049059",
+      "title": "Örnek 1",
+      "url": "/upload/galeri/efendilikten_kolelige_1__2017_SON____19_1781423049047.jpg",
+      "order": 0
+    },
+    {
+      "id": "1781423061998",
+      "title": "Örnek 2",
+      "url": "/upload/galeri/efendilikten_kolelige_1__2017_SON____5_1781423061982.jpg",
+      "order": 1
+    },
+    {
+      "id": "1781423075181",
+      "title": "Örnek 3",
+      "url": "/upload/galeri/efendilikten_kolelige_1__2017_SON____14_1781423075165.jpg",
+      "order": 2
+    },
+    {
+      "id": "1781423089235",
+      "title": "Örnek 4",
+      "url": "/upload/galeri/efendilikten_kolelige_1__2017_SON____36_1781423089219.jpg",
+      "order": 3
+    },
+    {
+      "id": "1781423098784",
+      "title": "Örnek 5",
+      "url": "/upload/galeri/efendilikten_kolelige_1__2017_SON____78_1781423098777.jpg",
+      "order": 4
+    },
+    {
+      "id": "1781423108184",
+      "title": "Örnek 6",
+      "url": "/upload/galeri/efendilikten_kolelige_1__2017_SON____90_1781423108168.jpg",
+      "order": 5
+    },
+    {
+      "id": "1781423115313",
+      "title": "Örnek 7",
+      "url": "/upload/galeri/efendilikten_kolelige_1__2017_SON____9_1781423115303.jpg",
+      "order": 6
+    },
+    {
+      "id": "1781423124178",
+      "title": "Örnek 8",
+      "url": "/upload/galeri/efendilikten_kolelige_1__2017_SON____83_1781423124163.jpg",
+      "order": 7
+    },
+    {
+      "id": "1781423132766",
+      "title": "Örnek 9",
+      "url": "/upload/galeri/efendilikten_kolelige_1__2017_SON____135_1781423132751.jpg",
+      "order": 8
+    },
+    {
+      "id": "1781423147067",
+      "title": "Örnek 10",
+      "url": "/upload/galeri/efendilikten_kolelige_1__2017_SON____153_1781423147060.jpg",
+      "order": 9
+    },
+    {
+      "id": "1781423154132",
+      "title": "Örnek 11",
+      "url": "/upload/galeri/efendilikten_kolelige_1__2017_SON____34_1781423154125.jpg",
+      "order": 10
+    },
+    {
+      "id": "1781423162185",
+      "title": "Örnek 12",
+      "url": "/upload/galeri/efendilikten_kolelige_1__2017_SON____18_1781423162177.jpg",
+      "order": 11
+    },
+    {
+      "id": "1781423184916",
+      "title": "Örnek 13",
+      "url": "/upload/galeri/efendilikten_kolelige_1__2017_SON____12_1781423184901.jpg",
+      "order": 12
+    },
+    {
+      "id": "1781423191470",
+      "title": "Örnek 14",
+      "url": "/upload/galeri/efendilikten_kolelige_1__2017_2SON____1781423191454.jpg",
+      "order": 13
+    }
+  ],
+  "audios": [
+    {
+      "id": "a1",
+      "title": "Konuşma",
+      "url": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Hasan-DAMAR%EF%BC%9ADog%CC%86rular%C4%B1-hayk%C4%B1racag%CC%86%C4%B1z..Namaz-k%C4%B1lan-ko%CC%88leler-olmayacag%CC%86%C4%B1z.-_Vealpe4_PNI_.f140-aXUlC5krAIKrCvbkS2K7oWqe1VQZWx.mp3",
+      "date": "1990",
+      "source": "Arşiv",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "a2",
+      "title": "Örnek Ses Kaydı 2",
+      "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+      "date": "1991",
+      "source": "Arşiv",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "a3",
+      "title": "Örnek Ses Kaydı 3",
+      "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+      "date": "1992",
+      "source": "Arşiv",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "a4",
+      "title": "Örnek Ses Kaydı 4",
+      "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+      "date": "1993",
+      "source": "Arşiv",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "a5",
+      "title": "Örnek Ses Kaydı 5",
+      "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
+      "date": "1994",
+      "source": "Arşiv",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "a6",
+      "title": "Örnek Ses Kaydı 6",
+      "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
+      "date": "1995",
+      "source": "Arşiv",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "a7",
+      "title": "Örnek Ses Kaydı 7",
+      "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
+      "date": "1996",
+      "source": "Arşiv",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "a8",
+      "title": "Örnek Ses Kaydı 8",
+      "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
+      "date": "1997",
+      "source": "Arşiv",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "a9",
+      "title": "Örnek Ses Kaydı 9",
+      "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
+      "date": "1998",
+      "source": "Arşiv",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "a10",
+      "title": "Örnek Ses Kaydı 10",
+      "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+      "date": "1999",
+      "source": "Arşiv",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "a11",
+      "title": "Örnek Ses Kaydı 11",
+      "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+      "date": "2000",
+      "source": "Arşiv",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "a12",
+      "title": "Örnek Ses Kaydı 12",
+      "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+      "date": "2001",
+      "source": "Arşiv",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    }
+  ],
+  "articles": [
+    {
+      "id": "ar1",
+      "title": "Örnek Makale 1",
+      "content": "<p>Bu 1 numaralı örnek makaledir. Hasan Damar'ın Milli Görüş davasına dair fikirlerini yansıtan temsili metindir.</p>",
+      "date": "2001",
+      "source": "Milli Gazete",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "ar2",
+      "title": "Örnek Makale 2",
+      "content": "<p>Bu 2 numaralı örnek makaledir. Avrupa'da teşkilatlanma çalışmalarını konu alan temsili bir yazıdır.</p>",
+      "date": "2002",
+      "source": "Milli Gazete",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "ar3",
+      "title": "Örnek Makale 3",
+      "content": "<p>Bu 3 numaralı örnek makaledir. İslami şuuru ve gençliğin önemini vurgulayan temsili yazıdır.</p>",
+      "date": "2003",
+      "source": "Milli Gazete",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "ar4",
+      "title": "Örnek Makale 4",
+      "content": "<p>Bu 4 numaralı örnek makaledir.</p>",
+      "date": "2004",
+      "source": "Milli Gazete",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "ar5",
+      "title": "Örnek Makale 5",
+      "content": "<p>Bu 5 numaralı örnek makaledir.</p>",
+      "date": "2005",
+      "source": "Milli Gazete",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "ar6",
+      "title": "Örnek Makale 6",
+      "content": "<p>Bu 6 numaralı örnek makaledir.</p>",
+      "date": "2006",
+      "source": "Milli Gazete",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "ar7",
+      "title": "Örnek Makale 7",
+      "content": "<p>Bu 7 numaralı örnek makaledir.</p>",
+      "date": "2007",
+      "source": "Milli Gazete",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "ar8",
+      "title": "Örnek Makale 8",
+      "content": "<p>Bu 8 numaralı örnek makaledir.</p>",
+      "date": "2008",
+      "source": "Milli Gazete",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "ar9",
+      "title": "Örnek Makale 9",
+      "content": "<p>Bu 9 numaralı örnek makaledir.</p>",
+      "date": "2009",
+      "source": "Milli Gazete",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "ar10",
+      "title": "Örnek Makale 10",
+      "content": "<p>Bu 10 numaralı örnek makaledir.</p>",
+      "date": "2010",
+      "source": "Milli Gazete",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "ar11",
+      "title": "Örnek Makale 11",
+      "content": "<p>Bu 11 numaralı örnek makaledir.</p>",
+      "date": "2011",
+      "source": "Milli Gazete",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "ar12",
+      "title": "Örnek Makale 12",
+      "content": "<p>Bu 12 numaralı örnek makaledir.</p>",
+      "date": "2012",
+      "source": "Milli Gazete",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    }
+  ],
+  "memories": [
+    {
+      "id": "m1",
+      "title": "Örnek Anı 1",
+      "content": "<p>Bu 1 numaralı örnek anıdır. Zor şartlarda yapılan ilk toplantıları konu alır.</p>",
+      "date": "1980",
+      "location": "Avrupa",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "m2",
+      "title": "Örnek Anı 2",
+      "content": "<p>Bu 2 numaralı örnek anıdır. İlk caminin temel atma töreninden hatıralar.</p>",
+      "date": "1981",
+      "location": "Avrupa",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "m3",
+      "title": "Örnek Anı 3",
+      "content": "<p>Bu 3 numaralı örnek anıdır. Gençlik kollarının kurulduğu o coşkulu günler.</p>",
+      "date": "1982",
+      "location": "Avrupa",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "m4",
+      "title": "Örnek Anı 4",
+      "content": "<p>Bu 4 numaralı örnek anıdır.</p>",
+      "date": "1983",
+      "location": "Avrupa",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "m5",
+      "title": "Örnek Anı 5",
+      "content": "<p>Bu 5 numaralı örnek anıdır.</p>",
+      "date": "1984",
+      "location": "Avrupa",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "m6",
+      "title": "Örnek Anı 6",
+      "content": "<p>Bu 6 numaralı örnek anıdır.</p>",
+      "date": "1985",
+      "location": "Avrupa",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "m7",
+      "title": "Örnek Anı 7",
+      "content": "<p>Bu 7 numaralı örnek anıdır.</p>",
+      "date": "1986",
+      "location": "Avrupa",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "m8",
+      "title": "Örnek Anı 8",
+      "content": "<p>Bu 8 numaralı örnek anıdır.</p>",
+      "date": "1987",
+      "location": "Avrupa",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "m9",
+      "title": "Örnek Anı 9",
+      "content": "<p>Bu 9 numaralı örnek anıdır.</p>",
+      "date": "1988",
+      "location": "Avrupa",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "m10",
+      "title": "Örnek Anı 10",
+      "content": "<p>Bu 10 numaralı örnek anıdır.</p>",
+      "date": "1989",
+      "location": "Avrupa",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "m11",
+      "title": "Örnek Anı 11",
+      "content": "<p>Bu 11 numaralı örnek anıdır.</p>",
+      "date": "1990",
+      "location": "Avrupa",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    },
+    {
+      "id": "m12",
+      "title": "Örnek Anı 12",
+      "content": "<p>Bu 12 numaralı örnek anıdır.</p>",
+      "date": "1991",
+      "location": "Avrupa",
+      "createdAt": "2026-06-14T00:00:00.000Z"
+    }
+  ],
+  "stats": {
+    "totalViews": 1250,
+    "totalVisitors": 430
+  }
+}
