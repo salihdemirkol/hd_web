@@ -11,6 +11,9 @@ export default async function DashboardPage() {
   const stats = [
     { label: 'Toplam Video', value: db.videos?.length || 0, icon: '🎥' },
     { label: 'Galeri Fotoğrafı', value: db.gallery?.length || 0, icon: '🖼️' },
+    { label: 'Toplam Makale', value: db.articles?.length || 0, icon: '📄' },
+    { label: 'Toplam Ses Kaydı', value: db.audios?.length || 0, icon: '🎧' },
+    { label: 'Toplam Anı', value: db.memories?.length || 0, icon: '💭' },
   ];
 
   return (
