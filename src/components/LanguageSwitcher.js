@@ -98,7 +98,7 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="language-switcher-container" style={{ position: 'relative', display: 'inline-block', marginLeft: '1rem', zIndex: 9999 }}>
+    <div className="language-switcher-container notranslate" style={{ position: 'relative', display: 'inline-block', marginLeft: '1rem', zIndex: 9999 }}>
       {/* Hidden Div for Google Translate logic */}
       <div id="google_translate_element" style={{ display: 'none' }}></div>
 

@@ -17,7 +17,7 @@ export default async function Home() {
           <div className={`${styles.bentoItem} ${styles.bentoHero} animate-slide-up`}>
             <div className={styles.heroTextContent}>
               <h1 className={styles.heroTitle}>Hasan Damar</h1>
-              <h2 className={styles.arabicTitle} dir="rtl">حسن دمار</h2>
+              <h2 className={`${styles.arabicTitle} notranslate`} dir="rtl">حسن دمار</h2>
               <p className={styles.heroSubtitle}>Milli Görüş davasına adanmış bir ömür (1940 - 2023)</p>
             </div>
             

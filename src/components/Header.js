@@ -13,7 +13,7 @@ export default function Header() {
   return (
     <header className="main-header">
       <div className="container header-inner">
-        <Link href="/" className="logo-container" onClick={() => setIsMenuOpen(false)}>
+        <Link href="/" className="logo-container notranslate" onClick={() => setIsMenuOpen(false)}>
           <div className="logo-mark">ح</div>
           <div className="logo-text">
             <span className="logo-title">Hasan Damar</span>
