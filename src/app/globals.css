@@ -71,6 +71,12 @@ a {
   padding: 0 1.5rem;
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding: 0 5px !important;
+  }
+}
+
 .section {
   padding: 5rem 0;
 }
@@ -338,7 +344,8 @@ a {
     top: 0.5rem;
     border-radius: 24px;
     padding: 0;
-    width: 96%;
+    width: calc(100% - 10px);
+    margin: 0 auto;
   }
   .header-inner {
     flex-wrap: wrap;

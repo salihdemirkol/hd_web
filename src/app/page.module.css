@@ -277,6 +277,10 @@ a.bentoItem:hover, .bentoHoverable:hover {
 }
 
 @media (max-width: 768px) {
+  .bentoSection {
+    padding-left: 0;
+    padding-right: 0;
+  }
   .bentoGrid {
     grid-template-columns: 1fr;
     grid-auto-rows: minmax(200px, auto);
