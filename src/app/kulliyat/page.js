@@ -41,7 +41,7 @@ export default function KulliyatPage() {
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', maxWidth: '1000px', margin: '0 auto' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', maxWidth: '100%', margin: '0 auto' }}>
         {books.map(book => (
           <div key={book.id} style={{ 
             backgroundColor: 'var(--color-bg-alt)', 
