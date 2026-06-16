@@ -295,8 +295,27 @@ a.bentoItem:hover, .bentoHoverable:hover {
   .bentoLarge {
     grid-row: span 1;
   }
+  .bentoLarge .bentoContent {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .bentoHeader {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .bentoTitle, .bentoDesc {
+    padding-left: 5px;
+    padding-right: 5px;
+    max-width: 100%;
+  }
   .booksMiniGrid {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
     margin-top: 2rem;
+    padding: 0 5px;
+  }
+  .miniBookCover {
+    max-width: 100px;
   }
 }
