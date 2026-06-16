@@ -1,3 +1,4 @@
+import Image from 'next/image';
 export const metadata = { title: 'Külliyat | Hasan Damar' };
 
 export default function KulliyatPage() {
@@ -74,6 +75,7 @@ export default function KulliyatPage() {
             )}
             
             <div style={{ 
+              position: 'relative',
               width: '160px', 
               height: '240px', 
               borderRadius: '8px', 
@@ -81,7 +83,7 @@ export default function KulliyatPage() {
               marginBottom: '2rem',
               overflow: 'hidden'
             }}>
-              <img src={book.cover} alt={book.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <Image src={book.cover} alt={book.title} fill style={{ objectFit: 'cover' }} sizes="160px" />
             </div>
 
             <h2 style={{ fontSize: '1.5rem', color: 'var(--color-primary)', marginBottom: '0.5rem', lineHeight: 1.2 }}>

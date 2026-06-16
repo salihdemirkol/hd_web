@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function LoadMoreVideos({ videos }) {
   const [visibleCount, setVisibleCount] = useState(9);
@@ -50,7 +51,7 @@ export default function LoadMoreVideos({ videos }) {
             >
               <div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%', backgroundColor: '#000' }}>
                 {isYoutube ? (
-                  <img src={thumbUrl} alt={video.title} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.8 }} />
+                  <Image src={thumbUrl} alt={video.title} fill style={{ objectFit: 'cover', opacity: 0.8 }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                 ) : (
                   <video src={video.url} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.8 }}></video>
                 )}

@@ -6,8 +6,43 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const amiri = Amiri({ weight: ['400', '700'], subsets: ['latin'], variable: '--font-amiri' });
 
 export const metadata = {
+  metadataBase: new URL('https://hasan-damar-web-zeta.vercel.app'), // Temporary Vercel URL
   title: 'Hasan Damar (1940-2023) | Resmi Anma ve Biyografi Sitesi',
-  description: 'Milli Görüş davasına adanmış bir ömür. Hasan Damar\'ın hayatı, eserleri ve mirasını yaşatan resmi anma sitesi.',
+  description: 'Milli Görüş davasına adanmış bir ömür. Hasan Damar\'ın hayatı, Avrupa teşkilatlanması, "Efendilikten Köleliğe" eseri ve tüm mirasını yaşatan resmi arşiv.',
+  keywords: ['Hasan Damar', 'Milli Görüş', 'Avrupa Milli Görüş', 'IGMG', 'Avrupa Türk İslam Hareketi', 'Necmettin Erbakan', 'Erbakan Hoca', 'Efendilikten Köleliğe', 'DGM 163'],
+  authors: [{ name: 'Hasan Damar Arşivi' }],
+  creator: 'Hasan Damar Arşivi',
+  openGraph: {
+    title: 'Hasan Damar (1940-2023) | Resmi Anma Sitesi',
+    description: 'Milli Görüş davasına adanmış bir ömür. Hasan Damar\'ın hayatı, eserleri ve mirası.',
+    url: 'https://hasan-damar-web-zeta.vercel.app',
+    siteName: 'Hasan Damar Arşivi',
+    images: [
+      {
+        url: '/images/hasan_damar_portrait.webp',
+        width: 800,
+        height: 600,
+      },
+    ],
+    locale: 'tr_TR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hasan Damar (1940-2023)',
+    description: 'Milli Görüş davasına adanmış bir ömür.',
+    images: ['/images/hasan_damar_portrait.webp'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({ children }) {

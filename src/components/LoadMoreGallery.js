@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function LoadMoreGallery({ photos }) {
   const [visibleCount, setVisibleCount] = useState(12);
@@ -44,7 +45,7 @@ export default function LoadMoreGallery({ photos }) {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '1.5rem' }}>
         {visiblePhotos.map((photo, index) => (
           <div key={photo.id} onClick={() => setSelectedIndex(index)} className="mock-card" style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', backgroundColor: '#2a2520', aspectRatio: '4/3', cursor: 'pointer', border: '1px solid rgba(220, 167, 91, 0.1)', transition: 'transform 0.2s' }} onMouseOver={e => e.currentTarget.style.transform = 'scale(1.02)'} onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}>
-            <img src={photo.url} alt={photo.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <Image src={photo.url} alt={photo.title} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '1.5rem 1rem 1rem', background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)' }}>
               <p style={{ color: 'white', margin: 0, fontSize: '0.95rem', fontWeight: '500', fontFamily: 'var(--font-sans)' }}>{photo.title}</p>
             </div>
@@ -93,15 +94,12 @@ export default function LoadMoreGallery({ photos }) {
                 ❮
               </button>
 
-              <img 
+              <Image 
                 src={photos[selectedIndex].url} 
                 alt={photos[selectedIndex].title} 
-                style={{
-                  maxWidth: '100%', maxHeight: '100%', 
-                  objectFit: 'contain',
-                  width: '100%',
-                  height: '100%'
-                }} 
+                fill
+                style={{ objectFit: 'contain' }}
+                sizes="100vw"
               />
 
               {/* Next Button */}

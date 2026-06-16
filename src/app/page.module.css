@@ -228,6 +228,7 @@ a.bentoItem:hover, .bentoHoverable:hover {
 }
 
 .miniBookCover {
+  position: relative;
   width: 70%;
   max-width: 130px;
   aspect-ratio: 2 / 3;

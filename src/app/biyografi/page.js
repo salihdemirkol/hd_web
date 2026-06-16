@@ -4,6 +4,7 @@ export const metadata = {
 };
 
 import styles from './page.module.css';
+import Image from 'next/image';
 
 export default function Biyografi() {
   return (
@@ -19,11 +20,15 @@ export default function Biyografi() {
       <div className={styles.bioGrid}>
         <aside className={styles.bioSidebar}>
           <div className={`${styles.portraitCard} glass-panel`}>
-            <img 
-              src="/images/hasan_damar_portrait.webp" 
-              alt="Hasan Damar" 
-              style={{ width: '160px', height: '200px', objectFit: 'cover', borderRadius: '50%', border: '3px solid var(--color-secondary)', boxShadow: '0 8px 32px rgba(201,168,76,0.3)', marginBottom: '1rem' }} 
-            />
+            <div style={{ position: 'relative', width: '160px', height: '200px', margin: '0 auto 1rem' }}>
+              <Image 
+                src="/images/hasan_damar_portrait.webp" 
+                alt="Hasan Damar" 
+                fill
+                style={{ objectFit: 'cover', borderRadius: '50%', border: '3px solid var(--color-secondary)', boxShadow: '0 8px 32px rgba(201,168,76,0.3)' }}
+                sizes="160px"
+              />
+            </div>
             <h3 className="text-center" style={{ marginTop: '0.5rem' }}>Hasan Damar</h3>
             <p className="text-center" style={{ color: 'var(--color-text-muted-light)', fontSize: '0.95rem', marginBottom: '1.5rem' }}>
               Yazar · Milli Görüş Hareketi Mensubu

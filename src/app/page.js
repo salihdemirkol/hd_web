@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styles from './page.module.css';
 import { BookIcon, VideoIcon, CameraIcon, ArticleIcon, CalendarIcon, UsersIcon } from '../components/Icons';
 import AudioBento from '@/components/AudioBento';
@@ -24,9 +25,12 @@ export default async function Home() {
             </div>
             
             <div className={styles.heroImageWrapper}>
-              <img 
+              <Image 
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/damar_bg-0Ieh2PImnaDjrphlEnxAZVPuOpXrHN.png" 
                 alt="Hasan Damar" 
+                fill
+                priority
+                sizes="(max-width: 768px) 80vw, (max-width: 1024px) 60vw, 30vw"
                 className={styles.heroImage}
               />
             </div>
@@ -47,19 +51,19 @@ export default async function Home() {
               <div className={styles.booksMiniGrid}>
                 <a href="/eserler/efendilikten-kolelige-1" className={styles.miniBook}>
                   <div className={styles.miniBookCover}>
-                    <img src="/images/cilt1.webp" alt="Cilt I" />
+                    <Image src="/images/cilt1.webp" alt="Cilt I" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100px, 130px" />
                   </div>
                   <span className={styles.miniBookTitle}>Cilt I</span>
                 </a>
                 <a href="/eserler/efendilikten-kolelige-2" className={styles.miniBook}>
                   <div className={styles.miniBookCover}>
-                    <img src="/images/cilt2.webp" alt="Cilt II" />
+                    <Image src="/images/cilt2.webp" alt="Cilt II" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100px, 130px" />
                   </div>
                   <span className={styles.miniBookTitle}>Cilt II</span>
                 </a>
                 <a href="/eserler/dgm-163" className={styles.miniBook}>
                   <div className={styles.miniBookCover}>
-                    <img src="/images/dgm.webp" alt="DGM 163" />
+                    <Image src="/images/dgm.webp" alt="DGM 163" fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100px, 130px" />
                   </div>
                   <span className={styles.miniBookTitle}>DGM 163</span>
                 </a>

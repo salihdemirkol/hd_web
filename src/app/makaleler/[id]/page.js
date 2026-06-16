@@ -7,7 +7,21 @@ export async function generateMetadata({ params }) {
   const db = await getDb();
   const article = (db.articles || []).find(a => a.id === id);
   if (!article) return { title: 'Makale Bulunamadı | Hasan Damar' };
-  return { title: `${article.title} | Hasan Damar` };
+  
+  // Create a clean text snippet for description
+  const cleanContent = article.content ? article.content.replace(/<[^>]*>?/gm, '').substring(0, 150) + '...' : 'Hasan Damar makalesi.';
+  
+  return { 
+    title: `${article.title} | Hasan Damar`,
+    description: cleanContent,
+    openGraph: {
+      title: `${article.title} | Hasan Damar`,
+      description: cleanContent,
+      type: 'article',
+      publishedTime: article.date,
+      authors: ['Hasan Damar']
+    }
+  };
 }
 
 export default async function ArticleDetailPage({ params }) {

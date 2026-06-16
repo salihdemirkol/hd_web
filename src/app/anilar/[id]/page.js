@@ -5,9 +5,21 @@ import Link from 'next/link';
 export async function generateMetadata({ params }) {
   const { id } = await params;
   const db = await getDb();
-  const memory = (db.memories || []).find(m => m.id === id);
+  const memory = (db.memories || []).find(a => a.id === id);
   if (!memory) return { title: 'Anı Bulunamadı | Hasan Damar' };
-  return { title: `${memory.title} | Hasan Damar` };
+  
+  const cleanContent = memory.content ? memory.content.replace(/<[^>]*>?/gm, '').substring(0, 150) + '...' : 'Hasan Damar ile ilgili anılar.';
+  
+  return { 
+    title: `${memory.title} | Hasan Damar`,
+    description: cleanContent,
+    openGraph: {
+      title: `${memory.title} | Hasan Damar`,
+      description: cleanContent,
+      type: 'article',
+      publishedTime: memory.date,
+    }
+  };
 }
 
 export default async function MemoryDetailPage({ params }) {

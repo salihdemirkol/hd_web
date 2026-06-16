@@ -266,7 +266,7 @@
     {
       "id": "ar1",
       "title": "Örnek Makale 1",
-      "content": "<p>Bu 1 numaralı örnek makaledir. Hasan Damar'ın Milli Görüş davasına dair fikirlerini yansıtan temsili metindir.</p>",
+      "content": "<p>Bu 1 numaralı örnek makaledir. <a href=\"/biyografi\" title=\"Hasan Damar Biyografisi\"><strong><a href=\"/biyografi\" title=\"Hasan Damar Biyografisi\"><strong>Hasan Damar</strong></a></strong></a>'ın Milli Görüş davasına dair fikirlerini yansıtan temsili metindir.</p>",
       "date": "2001",
       "source": "Milli Gazete",
       "createdAt": "2026-06-14T00:00:00.000Z"
