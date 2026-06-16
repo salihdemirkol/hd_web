@@ -82,19 +82,6 @@ export default function AudioBento({ pinnedAudio }) {
         <p className={styles.bentoDescSmall} style={{ marginTop: 'auto' }}>Eski sohbet ve konferans kasetleri</p>
       </div>
 
-      <div style={{ 
-        marginTop: '1rem', 
-        borderTop: '1px solid rgba(0,0,0,0.05)', 
-        paddingTop: '0.75rem',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between'
-      }}>
-        <span style={{ fontSize: '0.8rem', color: 'var(--color-primary)', fontWeight: '600' }}>
-          Tüm Kayıtlar
-        </span>
-        <span style={{ color: 'var(--color-primary)' }}>→</span>
-      </div>
     </div>
   );
 }
