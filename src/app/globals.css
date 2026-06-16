@@ -293,6 +293,7 @@ a {
   border-radius: 50px;
   color: var(--color-secondary) !important;
   transition: all 0.3s ease !important;
+  white-space: nowrap;
 }
 
 .header-cta:hover {
@@ -369,7 +370,9 @@ a {
   .header-cta {
     align-self: center;
     width: auto;
-    display: inline-block;
+    display: flex;
+    white-space: nowrap;
+    padding: 0 1.5rem !important;
   }
 }
 
