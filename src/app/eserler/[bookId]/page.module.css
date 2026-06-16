@@ -213,7 +213,7 @@
     border-radius: 0;
     border: none;
     transition: left 0.3s ease;
-    background-color: #1a232f; /* Dark background similar to user screenshot */
+    background-color: #5c5248; /* Earthy brown matching desktop sidebar */
     display: flex !important; /* Override closed state if any */
   }
 
@@ -279,7 +279,7 @@
   }
 
   .fabMenu {
-    background-color: #1f2d3d;
+    background-color: #5c5248;
     color: white;
   }
 
