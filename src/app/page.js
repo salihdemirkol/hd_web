@@ -12,7 +12,7 @@ export default async function Home() {
   return (
     <div className={styles.homeWrapper}>
       
-      <section className={styles.bentoSection}>
+      <section className={`container ${styles.bentoSection}`}>
         <div className={styles.bentoGrid}>
           
           {/* HERO BENTO (2x3) */}
