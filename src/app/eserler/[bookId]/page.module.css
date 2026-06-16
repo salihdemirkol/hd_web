@@ -148,6 +148,10 @@
   text-align: center;
   margin-bottom: 2rem;
   color: var(--color-primary);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  padding: 0 10px; /* Minimum 10px padding on sides */
 }
 
 .divider {
@@ -229,6 +233,14 @@
 
   .openSidebarBtn {
     display: none; /* Hide the top open sidebar button on mobile */
+  }
+
+  .chapterTitle {
+    font-size: 1.5rem; /* Reduced from 2.5rem */
+  }
+
+  .bookHeader h1 {
+    font-size: 1.8rem; /* Reduced from 2.5rem */
   }
 
   /* Backdrop overlay when menu is open */
