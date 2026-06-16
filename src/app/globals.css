@@ -313,7 +313,7 @@ a {
   background-color: #5c5248;
   color: rgba(244, 240, 230, 0.8);
   padding: 5rem 0 2rem;
-  margin-top: 0; /* Removed huge top margin */
+  margin-top: 4rem;
   border-top: 1px solid rgba(220, 167, 91, 0.2);
 }
 
