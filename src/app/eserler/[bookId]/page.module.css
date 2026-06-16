@@ -1,8 +1,8 @@
 .readerLayout {
   display: flex;
-  max-width: 1170px;
+  max-width: 1218px;
   margin: 4rem auto 8rem;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
   gap: 24px;
   align-items: start;
 }
