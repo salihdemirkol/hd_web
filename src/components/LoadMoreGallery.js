@@ -102,33 +102,18 @@ export default function LoadMoreGallery({ photos }) {
           </button>
 
           {/* Modal Content */}
-          <div onClick={e => e.stopPropagation()} style={isFullscreen ? {
-            width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'
-          } : {
-            display: 'flex', width: '90%', maxWidth: '950px', height: '70vh',
-            backgroundColor: 'var(--color-bg-alt)', borderRadius: '24px', overflow: 'hidden',
-            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)', border: '1px solid rgba(220,167,91,0.3)'
-          }}>
+          <div className={isFullscreen ? "modal-fullscreen" : "modal-content-container"} onClick={e => e.stopPropagation()}>
             
             {/* Image Section */}
-            <div 
-              style={{
-                flex: isFullscreen ? 'none' : '2',
-                width: isFullscreen ? '100%' : 'auto',
-                height: isFullscreen ? '100%' : 'auto',
-                backgroundColor: '#000', cursor: isFullscreen ? 'zoom-out' : 'zoom-in',
-                display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative'
-              }}
-              onClick={() => setIsFullscreen(!isFullscreen)}
-            >
+            <div className="modal-image-section" onClick={() => setIsFullscreen(!isFullscreen)}>
               <img 
                 src={photos[selectedIndex].url} 
                 alt={photos[selectedIndex].title} 
                 style={{
                   maxWidth: '100%', maxHeight: '100%', 
-                  objectFit: isFullscreen ? 'contain' : 'cover',
-                  width: isFullscreen ? 'auto' : '100%',
-                  height: isFullscreen ? 'auto' : '100%'
+                  objectFit: 'contain',
+                  width: '100%',
+                  height: '100%'
                 }} 
               />
               {!isFullscreen && (
@@ -148,10 +133,7 @@ export default function LoadMoreGallery({ photos }) {
 
             {/* Info Section (Hidden in Fullscreen) */}
             {!isFullscreen && (
-              <div className="custom-scrollbar" style={{
-                flex: '1', padding: '3rem 2rem', overflowY: 'auto',
-                borderLeft: '1px solid rgba(255,255,255,0.05)', display: 'flex', flexDirection: 'column'
-              }}>
+              <div className="custom-scrollbar modal-info-section">
                 <h3 style={{ fontSize: '1.8rem', color: 'var(--color-secondary)', marginBottom: '1.5rem', lineHeight: 1.3 }}>
                   {photos[selectedIndex].title}
                 </h3>
@@ -174,6 +156,66 @@ export default function LoadMoreGallery({ photos }) {
         .custom-scrollbar::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(220,167,91,0.3); border-radius: 4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(220,167,91,0.6); }
+        
+        .modal-fullscreen {
+          width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;
+        }
+        
+        .modal-content-container {
+          display: flex;
+          width: 90%;
+          max-width: 950px;
+          height: 70vh;
+          background-color: var(--color-bg-alt);
+          border-radius: 24px;
+          overflow: hidden;
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+          border: 1px solid rgba(220,167,91,0.3);
+          flex-direction: row;
+        }
+
+        .modal-image-section {
+          flex: 2;
+          background-color: #000;
+          cursor: zoom-in;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+        }
+        
+        .modal-fullscreen .modal-image-section {
+          flex: none;
+          width: 100%;
+          height: 100%;
+          cursor: zoom-out;
+        }
+
+        .modal-info-section {
+          flex: 1;
+          padding: 3rem 2rem;
+          overflow-y: auto;
+          border-left: 1px solid rgba(0,0,0,0.1);
+          display: flex;
+          flex-direction: column;
+        }
+
+        @media (max-width: 900px) {
+          .modal-content-container {
+            flex-direction: column;
+            height: 85vh;
+          }
+          .modal-image-section {
+            flex: none;
+            height: 50%;
+          }
+          .modal-info-section {
+            flex: 1;
+            padding: 1.5rem 1.5rem;
+            border-left: none;
+            border-top: 1px solid rgba(0,0,0,0.1);
+          }
+        }
       `}</style>
     </>
   );
