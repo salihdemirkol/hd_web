@@ -67,38 +67,15 @@ export default function LoadMoreGallery({ photos }) {
 
       {/* Lightbox Modal */}
       {selectedIndex !== null && (
-        <div style={{
-          position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
-          backgroundColor: isFullscreen ? '#000' : 'rgba(0, 0, 0, 0.9)',
-          zIndex: 9999, display: 'flex', justifyContent: 'center', alignItems: 'center',
-          padding: isFullscreen ? '0' : '2rem'
-        }} onClick={() => isFullscreen ? setIsFullscreen(false) : setSelectedIndex(null)}>
+        <div className={`modal-overlay ${isFullscreen ? 'fullscreen' : ''}`} onClick={() => isFullscreen ? setIsFullscreen(false) : setSelectedIndex(null)}>
           
           {/* Close Button */}
           <button onClick={(e) => { e.stopPropagation(); isFullscreen ? setIsFullscreen(false) : setSelectedIndex(null); }} style={{
-            position: 'absolute', top: '1.5rem', right: '1.5rem', background: 'rgba(255,255,255,0.1)', border: 'none', color: 'white',
+            position: 'absolute', top: '1rem', right: '1rem', background: 'rgba(255,255,255,0.1)', border: 'none', color: 'white',
             width: '40px', height: '40px', borderRadius: '50%', fontSize: '1.5rem', cursor: 'pointer', zIndex: 10000,
             display: 'flex', justifyContent: 'center', alignItems: 'center'
           }} onMouseOver={e => e.currentTarget.style.background = 'rgba(255,255,255,0.2)'} onMouseOut={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}>
             ✕
-          </button>
-
-          {/* Prev Button */}
-          <button onClick={handlePrev} style={{
-            position: 'absolute', left: '1.5rem', top: '50%', transform: 'translateY(-50%)', background: 'rgba(255,255,255,0.1)', border: 'none', color: 'white',
-            width: '50px', height: '50px', borderRadius: '50%', fontSize: '1.5rem', cursor: 'pointer', zIndex: 10000,
-            display: 'flex', justifyContent: 'center', alignItems: 'center'
-          }} onMouseOver={e => e.currentTarget.style.background = 'rgba(255,255,255,0.2)'} onMouseOut={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}>
-            ❮
-          </button>
-
-          {/* Next Button */}
-          <button onClick={handleNext} style={{
-            position: 'absolute', right: '1.5rem', top: '50%', transform: 'translateY(-50%)', background: 'rgba(255,255,255,0.1)', border: 'none', color: 'white',
-            width: '50px', height: '50px', borderRadius: '50%', fontSize: '1.5rem', cursor: 'pointer', zIndex: 10000,
-            display: 'flex', justifyContent: 'center', alignItems: 'center'
-          }} onMouseOver={e => e.currentTarget.style.background = 'rgba(255,255,255,0.2)'} onMouseOut={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}>
-            ❯
           </button>
 
           {/* Modal Content */}
@@ -106,6 +83,16 @@ export default function LoadMoreGallery({ photos }) {
             
             {/* Image Section */}
             <div className="modal-image-section" onClick={() => setIsFullscreen(!isFullscreen)}>
+              
+              {/* Prev Button */}
+              <button onClick={handlePrev} style={{
+                position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', background: 'rgba(255,255,255,0.15)', border: 'none', color: 'white',
+                width: '44px', height: '44px', borderRadius: '50%', fontSize: '1.2rem', cursor: 'pointer', zIndex: 10,
+                display: 'flex', justifyContent: 'center', alignItems: 'center'
+              }} onMouseOver={e => e.currentTarget.style.background = 'rgba(255,255,255,0.3)'} onMouseOut={e => e.currentTarget.style.background = 'rgba(255,255,255,0.15)'}>
+                ❮
+              </button>
+
               <img 
                 src={photos[selectedIndex].url} 
                 alt={photos[selectedIndex].title} 
@@ -116,15 +103,25 @@ export default function LoadMoreGallery({ photos }) {
                   height: '100%'
                 }} 
               />
+
+              {/* Next Button */}
+              <button onClick={handleNext} style={{
+                position: 'absolute', right: '1rem', top: '50%', transform: 'translateY(-50%)', background: 'rgba(255,255,255,0.15)', border: 'none', color: 'white',
+                width: '44px', height: '44px', borderRadius: '50%', fontSize: '1.2rem', cursor: 'pointer', zIndex: 10,
+                display: 'flex', justifyContent: 'center', alignItems: 'center'
+              }} onMouseOver={e => e.currentTarget.style.background = 'rgba(255,255,255,0.3)'} onMouseOut={e => e.currentTarget.style.background = 'rgba(255,255,255,0.15)'}>
+                ❯
+              </button>
+
               {!isFullscreen && (
                 <div style={{ 
                   position: 'absolute', bottom: '1rem', right: '1rem', 
                   backgroundColor: 'rgba(220,167,91,0.9)', color: '#000', 
-                  width: '45px', height: '45px', borderRadius: '50%', 
+                  width: '40px', height: '40px', borderRadius: '50%', 
                   display: 'flex', justifyContent: 'center', alignItems: 'center',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.5)', pointerEvents: 'none'
+                  boxShadow: '0 4px 15px rgba(0,0,0,0.5)', pointerEvents: 'none', zIndex: 10
                 }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
                   </svg>
                 </div>
@@ -157,6 +154,17 @@ export default function LoadMoreGallery({ photos }) {
         .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(220,167,91,0.3); border-radius: 4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(220,167,91,0.6); }
         
+        .modal-overlay {
+          position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+          background-color: rgba(0, 0, 0, 0.9);
+          z-index: 9999; display: flex; justify-content: center; align-items: center;
+          padding: 2rem;
+        }
+        .modal-overlay.fullscreen {
+          background-color: #000;
+          padding: 0;
+        }
+
         .modal-fullscreen {
           width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;
         }
@@ -201,13 +209,19 @@ export default function LoadMoreGallery({ photos }) {
         }
 
         @media (max-width: 900px) {
+          .modal-overlay {
+            padding: 0;
+          }
           .modal-content-container {
             flex-direction: column;
-            height: 85vh;
+            height: 100vh;
+            width: 100%;
+            border-radius: 0;
+            border: none;
           }
           .modal-image-section {
             flex: none;
-            height: 50%;
+            height: 55%;
           }
           .modal-info-section {
             flex: 1;
