@@ -9,8 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "dictionary-tr": "^2.0.0",
     "jose": "^6.2.3",
     "next": "16.2.9",
+    "nspell": "^2.1.5",
     "quill": "^2.0.3",
     "react": "19.2.4",
     "react-dom": "19.2.4",
