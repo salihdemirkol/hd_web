@@ -68,7 +68,7 @@ export default function Reader({ initialBook, bookId }) {
             
             <div className={styles.paragraphs}>
               {activeChapter.paragraphs.map((p, i) => (
-                <p key={i} className={styles.paragraph}>{p.text}</p>
+                <p key={i} className={styles.paragraph} dangerouslySetInnerHTML={{ __html: p.text }}></p>
               ))}
             </div>
           </article>
